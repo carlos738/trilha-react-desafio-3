@@ -20,15 +20,18 @@ const RegisterStudent = () => {
     const addPost = data =>{
         try {
             if (data.nome === '' || data.email === '' || data.senha === '') {
-                alert("Insira todos os dados");
+                alert("Enter all data");
+                
             }else{
                 const dados = api.post('/users', data);
                 console.log(dados);
-                alert("Cadastro com sucesso");
+                alert("Registration successfully");
+                
                 navigate('/Login');
             }
         } catch (error) {
-            // TODO: HOUVE UM ERRO
+            
+            // TODO: THERE WAS A MISTAKE
         }
     }
 
@@ -40,25 +43,26 @@ const RegisterStudent = () => {
             <Container>
                 <Column>
                     <Title>
-                    A plataforma para você aprender com experts, dominar as principais tecnologias
-                    e entrar mais rápido nas empresas mais desejadas.   
+                    The platform for you to learn from experts, master the main
+                    technologies and get into the most desired companies faster.                
+                       
                     </Title>
                 </Column>
                 <Column>
                     <Wrapper>
-                       <TitleLogin>Comece agora grátis</TitleLogin>
-                <SubTitleLogin>Crie sua conta e make the change._</SubTitleLogin>
+                       <TitleLogin>Get started now for free</TitleLogin>
+                <SubTitleLogin>Create your account and make the change._</SubTitleLogin>
                 
                <br/>
                 <form onSubmit={handleSubmit(addPost)}>
             
-                  <Input placeholder="Nome Completo" leftIcon={<MdContacts />} name="nome"  control={control} />
-                   {errors.nome && <span>Nome é obrigatório</span>}
+                  <Input placeholder="Full Name" leftIcon={<MdContacts />} name="nome"  control={control} />
+                   {errors.nome && <span>Name is required</span>}
                   <Input placeholder="E-mail" leftIcon={<MdEmail />} name="email"  control={control} />
-                    {errors.email && <span>E-mail é obrigatório</span>}
+                    {errors.email && <span>Email is required</span>}
                   <Input type="password" placeholder="Senha" leftIcon={<MdLock />}  name="senha" control={control} />
-                    {errors.senha && <span>Senha é obrigatório</span>}
-                  <Button title="Criar minha conta" variant="secondary" type="submit"/>
+                    {errors.senha && <span>Password is required</span>}
+                  <Button title="Create my account" variant="secondary" type="submit"/>
                     
                 </form>
                  
