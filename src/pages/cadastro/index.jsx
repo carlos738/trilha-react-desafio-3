@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 
 import { Container, Column, Title, TitleLogin, SubTitleLogin, Wrapper } from './styles';
 
-const Cadastro = () => {
+const RegisterStudent = () => {
     const navigate = useNavigate()
 
     const { control, handSubimit, formState: { errors }} = useForm({
@@ -68,3 +68,4 @@ const Cadastro = () => {
         </>
     )
 }
+export default{ RegisterStudent }
